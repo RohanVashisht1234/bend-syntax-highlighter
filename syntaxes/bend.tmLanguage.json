@@ -72,7 +72,7 @@
 			"patterns": [
 				{
 					"name": "keyword.control.less.bend",
-					"match": "\\b(switch|case|return|if|else|when|match|λ|Some|data|let|use|object|fold|open|do|bind|Name|identity|Bool)\\b"
+					"match": "\\b(def|switch|case|return|if|else|when|match|λ|Some|data|let|use|object|fold|open|do|bind|Name|identity|Bool|ask|with)\\b"
 				}
 			]
 		},
@@ -80,7 +80,7 @@
 			"patterns": [
 				{
 					"name": "keyword.bend",
-					"match": "\\b(bend|None|Nil|main|Result)\\b"
+					"match": "\\b(bend|None|Nil|Result)\\b"
 				}
 			]
 		},
@@ -125,10 +125,6 @@
 				{
 					"name": "support.variable.bend",
 					"match": "(?<=\\s*\\.)\\w+"
-				},
-				{
-					"name": "support.variable.bend",
-					"match": "(?<=\\bas\\s)\\w+"
 				},
 				{
 					"name": "support.variable.bend",

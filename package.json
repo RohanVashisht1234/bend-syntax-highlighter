@@ -3,6 +3,8 @@
   "displayName": "Bend",
   "description": "A syntax highlighter for bend programming language",
   "version": "0.0.1",
+  "license":"MIT",
+  "author": "Rohan Vashisht",
   "engines": {
     "vscode": "^1.89.0"
   },
