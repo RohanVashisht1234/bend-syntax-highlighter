@@ -12,7 +12,9 @@
     "vscode": "^1.89.0"
   },
   "categories": [
-    "Programming Languages"
+    "Programming Languages",
+    "Debuggers",
+    "Snippets"
   ],
   "main": "./src/extension.js",
   "activationEvents": [],
