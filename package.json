@@ -2,7 +2,7 @@
   "name": "bend",
   "displayName": "Bend",
   "description": "A syntax highlighter for bend programming language",
-  "icon": "",
+  "icon": "./icons/icon.png",
   "version": "0.0.2",
   "license": "MIT",
   "author": "Rohan Vashisht",
