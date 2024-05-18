@@ -5,24 +5,67 @@
     },
     // symbols used as brackets
     "brackets": [
-        ["{", "}"],
-        ["[", "]"],
-        ["(", ")"]
+        [
+            "{",
+            "}"
+        ],
+        [
+            "[",
+            "]"
+        ],
+        [
+            "(",
+            ")"
+        ]
     ],
     // symbols that are auto closed when typing
     "autoClosingPairs": [
-        ["{", "}"],
-        ["[", "]"],
-        ["(", ")"],
-        ["\"", "\""],
-        ["'", "'"]
+        [
+            "{",
+            "}"
+        ],
+        [
+            "[",
+            "]"
+        ],
+        [
+            "(",
+            ")"
+        ],
+        [
+            "\"",
+            "\""
+        ],
+        [
+            "'",
+            "'"
+        ]
     ],
     // symbols that can be used to surround a selection
     "surroundingPairs": [
-        ["{", "}"],
-        ["[", "]"],
-        ["(", ")"],
-        ["\"", "\""],
-        ["'", "'"]
-    ]
+        [
+            "{",
+            "}"
+        ],
+        [
+            "[",
+            "]"
+        ],
+        [
+            "(",
+            ")"
+        ],
+        [
+            "\"",
+            "\""
+        ],
+        [
+            "'",
+            "'"
+        ]
+    ],
+    "indentationRules": {
+        "increaseIndentPattern": "^((?!\\/\\/).)*(\\b(if|elif|else|for|while|try|define|with|class|def|except)\\b(?!.*\\bpass\\b)).*?:\\s*(?!\\s*#)*($|\\r?\\n)",
+        "decreaseIndentPattern": "^\\s*((\\bbreak\\b|\\bcontinue\\b|\\braise\\b|\\breturn\\b)|(\\r?\\n))"
+    }
 }
