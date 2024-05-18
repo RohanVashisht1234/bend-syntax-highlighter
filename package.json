@@ -14,6 +14,8 @@
   "categories": [
     "Programming Languages"
   ],
+  "main": "./src/extension.js",
+  "activationEvents": [],
   "contributes": {
     "languages": [
       {
@@ -39,6 +41,41 @@
       {
         "language": "bend",
         "path": "./snippets/bend.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "runBendFile",
+        "title": "runBendFile",
+        "shortTitle": "runBendFile",
+        "icon": "$(play)"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "runBendFile",
+          "when": "editorLangId == bend",
+          "group": "navigation"
+        }
+      ]
+    },
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "devDependencies": {
+      "@types/vscode": "^1.60.0",
+      "@types/glob": "^7.1.4",
+      "@types/mocha": "^9.0.0",
+      "@types/node": "^16.7.13",
+      "tslint": "^6.1.3",
+      "typescript": "^4.4.2",
+      "vscode-test": "^1.6.2"
+    },
+    "keybindings": [
+      {
+        "command": "runBendFile",
+        "key": "Ctrl+L L"
       }
     ]
   }
