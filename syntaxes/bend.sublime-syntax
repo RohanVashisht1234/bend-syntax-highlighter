@@ -1,0 +1,95 @@
+$schema: https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json
+fileTypes:
+- bend
+name: bend
+patterns:
+- include: '#comments'
+- include: '#operators'
+- include: '#strings'
+- include: '#numbers'
+- include: '#reserved-words'
+- include: '#operator-dedicated-keywords-statements'
+- include: '#ctrl-statements'
+- include: '#special-keywords'
+- include: '#true-false'
+- include: '#functions'
+- include: '#customs'
+repository:
+  comments:
+    patterns:
+    - begin: '#'
+      end: '
+
+        '
+      name: comment.line.double-dash.bend
+    - begin: //
+      end: '
+
+        '
+      name: comment.line.double-dash.bend
+  customs:
+    patterns:
+    - match: (?<=\bdata\s)\w+
+      name: support.class.bend
+    - match: (?<=\blet\s)\w+
+      name: support.class.bend
+    - match: (?<=\bSome\s)\w+
+      name: support.class.bend
+    - match: (?<=\s*\.)\w+
+      name: support.variable.bend
+    - match: \w+(?=\s*=)
+      name: support.variable.bend
+    - match: (?<=\bbend\s)\w+
+      name: support.variable.bend
+    - match: (?<=\bdef\s)\w+
+      name: support.function.bend
+    - match: (?<=\bobject\s)\w+
+      name: support.other.bend
+    - match: (?<=\bfold\s)\w+
+      name: support.type.property-name.bend
+    - match: (?<=\bopen\s)\w+
+      name: support.class.bend
+    - match: (?<=\bdo\s)\w+
+      name: support.class.bend
+    - match: (?<=\bidentity\s)\w+
+      name: support.class.bend
+    - match: (?<=\blambda\s)\w+
+      name: support.class.bend
+  functions:
+    patterns:
+    - match: \b[a-zA-Z]+\s*\(
+      name: support.function.bend
+  numbers:
+    patterns:
+    - match: \b\d+\b
+      name: constant.numeric.bend
+    - match: \b\d+\.\d+\b
+      name: constant.numeric.bend
+    - match: \b\d{1,3}(?:_\d{3})*\b
+      name: constant.numeric.bend
+  operator-dedicated-keywords-statements:
+    patterns:
+    - match: \b(bend|None|Nil|Result|type)\b
+      name: keyword.bend
+  operators:
+    patterns:
+    - match: \b(\+|-|\*|/|!)\b
+      name: keyword.operator.new.bend
+  reserved-words:
+    patterns:
+    - match: \b(Node|Leaf|Tree)\b
+      name: support.type.bend
+  special-keywords:
+    patterns:
+    - match: \b(def|switch|case|return|if|else|when|match|λ|Some|data|let|use|object|fold|open|do|bind|Name|identity|Bool|ask|with)\b
+      name: keyword.control.less.bend
+  strings:
+    patterns:
+    - begin: '"'
+      end: '"'
+      name: string.quoted.double.bend
+  true-false:
+    patterns:
+    - match: \b(True|False)\b
+      name: keyword.operator.new.bend
+scopeName: source.bend
