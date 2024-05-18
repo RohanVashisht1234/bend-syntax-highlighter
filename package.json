@@ -3,7 +3,7 @@
   "displayName": "Bend",
   "description": "A syntax highlighter for bend programming language",
   "icon": "./icons/icon.png",
-  "version": "0.0.2",
+  "version": "0.0.5",
   "license": "MIT",
   "author": "Rohan Vashisht",
   "repository": "https://github.com/RohanVashisht1234/bend-syntax-highlighter",
@@ -33,6 +33,12 @@
         "language": "bend",
         "scopeName": "source.bend",
         "path": "./syntaxes/bend.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "bend",
+        "path": "./snippets/bend.json"
       }
     ]
   }

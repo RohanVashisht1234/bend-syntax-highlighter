@@ -36,6 +36,16 @@
 			"include": "#functions"
 		},
 		{
+			"name": "string.quoted.double.carbon",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"include": "#string_escapes"
+				}
+			]
+		},
+		{
 			"include": "#customs"
 		}
 	],
@@ -62,12 +72,11 @@
 				}
 			]
 		},
-		"strings": {
+		"string_escapes": {
 			"patterns": [
 				{
-					"name": "string.quoted.double.bend",
-					"begin": "\"",
-					"end": "\""
+					"name": "constant.character.escape.bend",
+					"match": "\\\\([tnr'\"0\\0]|x[0-9A-F]{2}|u\\{[0-9A-F]{4,}\\})"
 				}
 			]
 		},
