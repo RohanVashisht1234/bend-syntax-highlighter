@@ -17,7 +17,7 @@ All notable changes to the "bend" extension will be documented in this file.
 - Added icon support
 - fixed the .gitignore
 
-## v0.0.3
+## v0.0.5 [Major release]
 
 - Added snippets for def, main, etc.
 - Added support for escape sequence.
