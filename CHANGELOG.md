@@ -21,3 +21,7 @@ All notable changes to the "bend" extension will be documented in this file.
 
 - Added snippets for def, main, etc.
 - Added support for escape sequence.
+
+## v0.0.6
+
+- Added run button support
