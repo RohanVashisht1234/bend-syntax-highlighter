@@ -25,3 +25,8 @@ All notable changes to the "bend" extension will be documented in this file.
 ## v0.0.6
 
 - Added run button support
+
+## v0.0.7 [Minor Bug Fixed and Improvements]
+
+- Fixed run button to work on all locations of the files present
+- Added Debuggers and Snippets category to package.json.
