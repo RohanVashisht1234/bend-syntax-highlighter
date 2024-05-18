@@ -1,6 +1,9 @@
 {
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"name": "bend",
+	"fileTypes": [
+		"bend"
+	],
 	"patterns": [
 		{
 			"include": "#comments"
@@ -72,7 +75,7 @@
 			"patterns": [
 				{
 					"name": "keyword.control.less.bend",
-					"match": "\\b(type|def|switch|case|return|if|else|when|match|λ|Some|data|let|use|object|fold|open|do|bind|Name|identity|Bool|ask|with)\\b"
+					"match": "\\b(def|switch|case|return|if|else|when|match|λ|Some|data|let|use|object|fold|open|do|bind|Name|identity|Bool|ask|with)\\b"
 				}
 			]
 		},
