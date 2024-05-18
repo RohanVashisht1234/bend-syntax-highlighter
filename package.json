@@ -4,7 +4,7 @@
   "description": "A syntax highlighter for bend programming language",
   "icon": "",
   "version": "0.0.2",
-  "license":"MIT",
+  "license": "MIT",
   "author": "Rohan Vashisht",
   "repository": "https://github.com/RohanVashisht1234/bend-syntax-highlighter",
   "publisher": "RohanVashisht",
@@ -15,16 +15,25 @@
     "Programming Languages"
   ],
   "contributes": {
-    "languages": [{
-      "id": "bend",
-      "aliases": ["Bend", "bend"],
-      "extensions": [".bend"],
-      "configuration": "./language-configuration.json"
-    }],
-    "grammars": [{
-      "language": "bend",
-      "scopeName": "source.bend",
-      "path": "./syntaxes/bend.tmLanguage.json"
-    }]
+    "languages": [
+      {
+        "id": "bend",
+        "aliases": [
+          "Bend",
+          "bend"
+        ],
+        "extensions": [
+          ".bend"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "bend",
+        "scopeName": "source.bend",
+        "path": "./syntaxes/bend.tmLanguage.json"
+      }
+    ]
   }
 }

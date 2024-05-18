@@ -64,8 +64,13 @@
             "'"
         ]
     ],
-    "indentationRules": {
-        "increaseIndentPattern": "^((?!\\/\\/).)*(\\b(if|elif|else|for|while|try|define|with|class|def|except)\\b(?!.*\\bpass\\b)).*?:\\s*(?!\\s*#)*($|\\r?\\n)",
-        "decreaseIndentPattern": "^\\s*((\\bbreak\\b|\\bcontinue\\b|\\braise\\b|\\breturn\\b)|(\\r?\\n))"
-    }
+    "onEnterRules": [
+        {
+            "beforeText": "^\\s*(?:def|class|for|if|elif|else|try|with|finally|except|async).*?:\\s*$",
+            "action": {
+                "indent": "none",
+                "appendText": "  "
+            }
+        }
+    ]
 }
