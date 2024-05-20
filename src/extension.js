@@ -12,8 +12,6 @@ function specials(command) {
     }
 }
 
-
-
 function generate_commands(command, fext) {
     let editor = vscode.window.activeTextEditor;
     if (editor) {
@@ -65,8 +63,6 @@ function activate(context) {
     // Add the command to the context
     context.subscriptions.push(runBendFile);
 }
-
-
 
 class MyTreeItem extends vscode.TreeItem {
     constructor(label, command) {
