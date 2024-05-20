@@ -29,7 +29,11 @@
         "extensions": [
           ".bend"
         ],
-        "configuration": "./language-configuration.json"
+        "configuration": "./language-configuration.json",
+        "icon": {
+          "light": "./icons/langIcon/light.png",
+          "dark": "./icons/langIcon/dark.png"
+        }
       }
     ],
     "views": {
