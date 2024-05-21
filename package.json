@@ -9,7 +9,7 @@
   "repository": "https://github.com/RohanVashisht1234/bend-syntax-highlighter",
   "publisher": "RohanVashisht",
   "engines": {
-    "vscode": "^1.89.0"
+    "vscode": "^1.85.0"
   },
   "categories": [
     "Programming Languages",
