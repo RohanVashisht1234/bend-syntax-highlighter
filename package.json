@@ -3,13 +3,13 @@
   "displayName": "Bend",
   "description": "A syntax highlighter for bend programming language",
   "icon": "./icons/icon.png",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "license": "MIT",
   "author": "Rohan Vashisht",
   "repository": "https://github.com/RohanVashisht1234/bend-syntax-highlighter",
   "publisher": "RohanVashisht",
   "engines": {
-    "vscode": "^1.85.0"
+    "vscode": "^1.70.0"
   },
   "categories": [
     "Programming Languages",
