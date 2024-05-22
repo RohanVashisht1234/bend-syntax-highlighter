@@ -3,7 +3,7 @@
   "displayName": "Bend",
   "description": "A syntax highlighter for bend programming language",
   "icon": "./icons/icon.png",
-  "version": "0.0.10",
+  "version": "0.1.0",
   "license": "MIT",
   "author": "Rohan Vashisht",
   "repository": "https://github.com/RohanVashisht1234/bend-syntax-highlighter",
@@ -82,9 +82,6 @@
           "group": "navigation"
         }
       ]
-    },
-    "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1"
     },
     "keybindings": [
       {
