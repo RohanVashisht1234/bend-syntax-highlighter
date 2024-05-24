@@ -5,19 +5,37 @@ const path = require('path');
 function specials(command) {
     let editor = vscode.window.activeTextEditor;
     if (editor) {
-        editor.document.save();
-        let terminal = vscode.window.createTerminal('Bend Interactive');
-        terminal.sendText(`bend ${command} "${editor.document.fileName}"`);
-        terminal.show();
+        if (editor.document.languageId == "bend") {
+            editor.document.save();
+            let terminal = vscode.window.createTerminal('Bend Interactive');
+            terminal.sendText(`bend ${command} "${editor.document.fileName}"`);
+            terminal.show();
+        } else {
+            vscode.window.showErrorMessage("Editor doesn't contain a bend file")
+        }
+    } else {
+        vscode.window.showErrorMessage("No file is open in the editor")
     }
+}
+
+function installBend() {
+    let terminal = vscode.window.createTerminal('Bend Interactive');
+    terminal.sendText(`rustup default nightly && cargo +nightly install hvm && cargo +nightly install bend-lang && rustup default stable`);
+    terminal.show();
 }
 
 function generate_commands(command, fext) {
     let editor = vscode.window.activeTextEditor;
     if (editor) {
-        editor.document.save();
-        let terminal = vscode.window.createTerminal('Bend Interactive');
-        terminal.sendText(`bend ${command} "${editor.document.fileName}" > "${path.dirname(editor.document.fileName) + "/" + path.basename(editor.document.fileName, ".bend")}.bend.${fext}"`);
+        if (editor.document.languageId == "bend") {
+            editor.document.save();
+            let terminal = vscode.window.createTerminal('Bend Interactive');
+            terminal.sendText(`bend ${command} "${editor.document.fileName}" > "${path.dirname(editor.document.fileName) + "/" + path.basename(editor.document.fileName, ".bend")}.bend.${fext}"`);
+        } else {
+            vscode.window.showErrorMessage("Editor doesn't contain a bend file");
+        }
+    } else {
+        vscode.window.showErrorMessage("No file is open in the editor");
     }
 }
 
@@ -47,7 +65,12 @@ function activate(context) {
     let cmd7 = vscode.commands.registerCommand('ConvertToCuda', () => {
         generate_commands("gen-cu", "cu");
     });
-
+    let cmd8 = vscode.commands.registerCommand('desugar', () => {
+        generate_commands("gen-cu", "desugar");
+    });
+    let cmd9 = vscode.commands.registerCommand('installBend', () => {
+        installBend()
+    });
     context.subscriptions.push(cmd1);
     context.subscriptions.push(cmd2);
     context.subscriptions.push(cmd3);
@@ -55,6 +78,8 @@ function activate(context) {
     context.subscriptions.push(cmd5);
     context.subscriptions.push(cmd6);
     context.subscriptions.push(cmd7);
+    context.subscriptions.push(cmd8);
+    context.subscriptions.push(cmd9);
 
     let runBendFile = vscode.commands.registerCommand('runBendFile', function () {
         specials("run");
@@ -111,6 +136,14 @@ class MyTreeDataProvider {
                 new MyTreeItem('Convert bend to Cuda', {
                     command: 'ConvertToCuda',
                     title: 'Convert bend to Cuda',
+                }),
+                new MyTreeItem('Generate De-sugared functional bend file', {
+                    command: 'desugar',
+                    title: 'Generate De-sugared functional bend file',
+                }),
+                new MyTreeItem('Install Bend programming language', {
+                    command: 'installBend',
+                    title: 'Install Bend programming language',
                 }),
             ];
         }

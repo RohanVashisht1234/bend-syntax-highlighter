@@ -1,4 +1,4 @@
-def main():
+def main:
   # A syntax highlighter for the Bend programming language in VScode!
   intro = "Hello, my name is"
   name = "Rohan Vashisht!"
