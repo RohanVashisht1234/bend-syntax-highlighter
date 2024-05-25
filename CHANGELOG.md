@@ -41,3 +41,6 @@ All notable changes to the "bend" extension will be documented in this file.
 ## v0.1.0 [Major change]
 
 - Added few more support for sidebar.
+- Heavily optimized the vsix file:
+  - from 1.2 MB to 199KB
+- Added Pre-commit
