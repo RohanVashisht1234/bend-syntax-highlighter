@@ -44,3 +44,4 @@ All notable changes to the "bend" extension will be documented in this file.
 - Heavily optimized the vsix file:
   - from 1.2 MB to 199KB
 - Added Pre-commit
+- Improved README
