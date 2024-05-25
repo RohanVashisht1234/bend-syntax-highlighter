@@ -2,7 +2,7 @@
   "name": "bend",
   "displayName": "Bend",
   "description": "A syntax highlighter for bend programming language",
-  "icon": "./icons/icon.png",
+  "icon": "./icons/icon.webp",
   "version": "0.1.0",
   "license": "MIT",
   "author": "Rohan Vashisht",
@@ -31,8 +31,8 @@
         ],
         "configuration": "./language-configuration.json",
         "icon": {
-          "light": "./icons/langIcon/light.png",
-          "dark": "./icons/langIcon/dark.png"
+          "light": "./icons/langIcon/light.webp",
+          "dark": "./icons/langIcon/dark.webp"
         }
       }
     ],
@@ -49,7 +49,7 @@
         {
           "id": "myCustomContainer",
           "title": "Bend",
-          "icon": "./icons/sideBarIcon.png"
+          "icon": "./icons/sideBarIcon.webp"
         }
       ]
     },
