@@ -29,3 +29,15 @@ All notable changes to the "bend" extension will be documented in this file.
 
 - Fixed run button to work on all locations of the files present
 - Added Debuggers and Snippets category to package.json.
+
+## v0.0.8 [Major change]
+
+- Added better sidebar support
+
+## v0.0.9 [Minor change]
+
+- Fixed few bugs and maintained sidebar.
+
+## v0.1.0 [Major change]
+
+- Added few more support for sidebar.
