@@ -114,7 +114,11 @@
       "patterns": [
         {
           "name": "support.function.bend",
-          "match": "\\b[a-zA-Z]+\\s*\\("
+          "match": "\\b[a-zA-Z_0-9]+\\s*\\("
+        },
+        {
+          "name": "support.function.bend",
+          "match": "\\b(print)\\b"
         }
       ]
     },
@@ -167,6 +171,10 @@
         {
           "name": "support.class.bend",
           "match": "(?<=\\bidentity\\s)\\w+"
+        },
+        {
+          "name": "support.type.property-name.bend",
+          "match": "(?<=\\breturn\\s)\\w+"
         },
         {
           "name": "support.class.bend",
