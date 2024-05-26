@@ -45,3 +45,11 @@ All notable changes to the "bend" extension will be documented in this file.
   - from 1.2 MB to 199KB
 - Added Pre-commit
 - Improved README
+
+## v0.1.1 [Majour change]
+
+- Added code formatter support
+
+## v0.1.2 [Minor change]
+
+- Improved code formatter support
