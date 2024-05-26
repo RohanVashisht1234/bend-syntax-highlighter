@@ -14,7 +14,8 @@
   "categories": [
     "Programming Languages",
     "Debuggers",
-    "Snippets"
+    "Snippets",
+    "Formatters"
   ],
   "main": "./src/extension.js",
   "activationEvents": [],

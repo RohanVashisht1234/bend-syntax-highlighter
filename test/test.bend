@@ -2,15 +2,15 @@ def myFunction(a, b, c):
   return a+b+c
 
 
-def checker(name):
-  if name == "YO":
-    return True
+def authenticator(name):
+  if name == "asdf":
+    return 1
   else:
-    return False
+    return 0
 
 
 def main():
-  if checker("YO"):
+  if authenticator("asdf"):
     return myFunction(10, 20, 30)
   else:
     return myFunction(1, 2, 3)

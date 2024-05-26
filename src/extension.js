@@ -1,24 +1,31 @@
-const vscode = require("vscode");
-const path = require("path");
+import {
+  window,
+  languages,
+  commands,
+  TreeItem,
+  TreeItemCollapsibleState,
+  EventEmitter,
+} from "vscode";
+import { dirname, basename } from "path";
 
 function specials(command) {
-  let editor = vscode.window.activeTextEditor;
+  let editor = window.activeTextEditor;
   if (editor) {
     if (editor.document.languageId == "bend") {
       editor.document.save();
-      let terminal = vscode.window.createTerminal("Bend Interactive");
+      let terminal = window.createTerminal("Bend Interactive");
       terminal.sendText(`bend ${command} "${editor.document.fileName}"`);
       terminal.show();
     } else {
-      vscode.window.showErrorMessage("Editor doesn't contain a bend file");
+      window.showErrorMessage("Editor doesn't contain a bend file");
     }
   } else {
-    vscode.window.showErrorMessage("No file is open in the editor");
+    window.showErrorMessage("No file is open in the editor");
   }
 }
 
 function installBend() {
-  let terminal = vscode.window.createTerminal("Bend Interactive");
+  let terminal = window.createTerminal("Bend Interactive");
   terminal.sendText(
     `rustup default nightly && cargo +nightly install hvm && cargo +nightly install bend-lang && rustup default stable`
   );
@@ -26,66 +33,66 @@ function installBend() {
 }
 
 function generate_commands(command, fext) {
-  let editor = vscode.window.activeTextEditor;
+  let editor = window.activeTextEditor;
   if (editor) {
     if (editor.document.languageId == "bend") {
       editor.document.save();
-      let terminal = vscode.window.createTerminal("Bend Interactive");
+      let terminal = window.createTerminal("Bend Interactive");
       terminal.sendText(
         `bend ${command} "${editor.document.fileName}" > "${
-          path.dirname(editor.document.fileName) +
+          dirname(editor.document.fileName) +
           "/" +
-          path.basename(editor.document.fileName, ".bend")
+          basename(editor.document.fileName, ".bend")
         }.bend.${fext}"`
       );
     } else {
-      vscode.window.showErrorMessage("Editor doesn't contain a bend file");
+      window.showErrorMessage("Editor doesn't contain a bend file");
     }
   } else {
-    vscode.window.showErrorMessage("No file is open in the editor");
+    window.showErrorMessage("No file is open in the editor");
   }
 }
 
 function activate(context) {
-  vscode.languages.registerDocumentFormattingEditProvider("bend", {
+  languages.registerDocumentFormattingEditProvider("bend", {
     provideDocumentFormattingEdits(document) {
-      var x = vscode.window.createTerminal("Formatter");
+      var x = window.createTerminal("Formatter");
       x.sendText(`autopep8 --indent-size 2 --in-place "${document.fileName}"`);
       x.sendText(`python3 -m pip install autopep8`);
       x.sendText(`py -m pip install autopep8`);
       x.sendText(`autopep8 --indent-size 2 --in-place "${document.fileName}"`);
-      return [vscode.window.showInformationMessage("Code formatted")];
+      return [window.showInformationMessage("Code formatted")];
     },
   });
   const myTreeDataProvider = new MyTreeDataProvider();
-  vscode.window.registerTreeDataProvider("myCustomView", myTreeDataProvider);
+  window.registerTreeDataProvider("myCustomView", myTreeDataProvider);
 
   // Register the commands
-  let cmd1 = vscode.commands.registerCommand("runUnParallel", () => {
+  let cmd1 = commands.registerCommand("runUnParallel", () => {
     specials("run");
   });
-  let cmd2 = vscode.commands.registerCommand("runParallel", () => {
+  let cmd2 = commands.registerCommand("runParallel", () => {
     specials("run-c");
   });
-  let cmd3 = vscode.commands.registerCommand("runParallelGraphics", () => {
+  let cmd3 = commands.registerCommand("runParallelGraphics", () => {
     specials("run-cu");
   });
-  let cmd4 = vscode.commands.registerCommand("check", () => {
+  let cmd4 = commands.registerCommand("check", () => {
     specials("check");
   });
-  let cmd5 = vscode.commands.registerCommand("ConvertToC", () => {
+  let cmd5 = commands.registerCommand("ConvertToC", () => {
     generate_commands("gen-c", "c");
   });
-  let cmd6 = vscode.commands.registerCommand("ConvertToHvmc", () => {
+  let cmd6 = commands.registerCommand("ConvertToHvmc", () => {
     generate_commands("gen-hvm", "hvmc");
   });
-  let cmd7 = vscode.commands.registerCommand("ConvertToCuda", () => {
+  let cmd7 = commands.registerCommand("ConvertToCuda", () => {
     generate_commands("gen-cu", "cu");
   });
-  let cmd8 = vscode.commands.registerCommand("desugar", () => {
+  let cmd8 = commands.registerCommand("desugar", () => {
     generate_commands("gen-cu", "desugar");
   });
-  let cmd9 = vscode.commands.registerCommand("installBend", () => {
+  let cmd9 = commands.registerCommand("installBend", () => {
     installBend();
   });
   context.subscriptions.push(cmd1);
@@ -98,7 +105,7 @@ function activate(context) {
   context.subscriptions.push(cmd8);
   context.subscriptions.push(cmd9);
 
-  let runBendFile = vscode.commands.registerCommand("runBendFile", function () {
+  let runBendFile = commands.registerCommand("runBendFile", function () {
     specials("run");
   });
 
@@ -106,16 +113,16 @@ function activate(context) {
   context.subscriptions.push(runBendFile);
 }
 
-class MyTreeItem extends vscode.TreeItem {
+class MyTreeItem extends TreeItem {
   constructor(label, command) {
-    super(label, vscode.TreeItemCollapsibleState.None);
+    super(label, TreeItemCollapsibleState.None);
     this.command = command;
   }
 }
 
 class MyTreeDataProvider {
   constructor() {
-    this._onDidChangeTreeData = new vscode.EventEmitter();
+    this._onDidChangeTreeData = new EventEmitter();
     this.onDidChangeTreeData = this._onDidChangeTreeData.event;
   }
 
@@ -167,4 +174,5 @@ class MyTreeDataProvider {
     return [];
   }
 }
-exports.activate = activate;
+const _activate = activate;
+export { _activate as activate };
