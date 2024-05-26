@@ -7,8 +7,6 @@ def authenticator(name):
     return 1
   else:
     return 0
-
-
 def main():
   if authenticator("asdf"):
     return myFunction(10, 20, 30)
