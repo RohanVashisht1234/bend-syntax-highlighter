@@ -51,8 +51,6 @@ function activate(context) {
     provideDocumentFormattingEdits(document) {
       var x = vscode.window.createTerminal("Formatter");
       x.sendText(`autopep8 --indent-size 2 --in-place "${document.fileName}"`);
-      x.sendText(`pip install autopep8`);
-      x.sendText(`pip3 install autopep8`);
       x.sendText(`python3 -m pip install autopep8`);
       x.sendText(`py -m pip install autopep8`);
       x.sendText(`autopep8 --indent-size 2 --in-place "${document.fileName}"`);
