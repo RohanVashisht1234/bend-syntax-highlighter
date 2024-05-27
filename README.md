@@ -15,8 +15,10 @@
 ## Features:
 
 - Syntax highlighting
+- Code formatter
 - Snippet support
 - Side bar view:
+
   - Check file to avoid errors
   - Run current file unparallelly
   - Run current file parallelly
@@ -26,9 +28,8 @@
   - Convert bend to Cuda
   - De-Sugarize bend file
   - Install bend programming language
-- LSP (Comming soon) 🏃......
 
-- Code formatter (Planned) 🏃...
+- LSP (Comming soon) 🏃......
 
 ## Contributing:
 
