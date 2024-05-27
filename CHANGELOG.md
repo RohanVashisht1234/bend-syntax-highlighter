@@ -66,3 +66,8 @@ All notable changes to the "bend" extension will be documented in this file.
 - Fixed a huge bugs and syntaxes
 - Added better support for formatter
 - Fixed [issue](https://discord.com/channels/912426566838013994/1241147735390949436/1244482626308276276)
+
+## v0.1.7 [Major release]
+
+- Added huge syntax highlighting support
+-

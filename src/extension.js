@@ -20,8 +20,9 @@ function specials(command) {
 function installBend() {
   let terminal = vscode.window.createTerminal("Bend Interactive");
   terminal.sendText(
-    `rustup default nightly && cargo +nightly install hvm && cargo +nightly install bend-lang && rustup default stable`
+    `rustup default nightly && cargo +nightly install hvm && cargo +nightly install bend-lang && rustup default stable && clear &&echo -e "\\033[0;32m Bend extension has successfully installed/updated bend programming language for you"`
   );
+
   terminal.show();
 }
 
@@ -59,53 +60,61 @@ function activate(context) {
       return [vscode.window.showInformationMessage("Code formatted")];
     },
   });
+
   const myTreeDataProvider = new MyTreeDataProvider();
+
   vscode.window.registerTreeDataProvider("myCustomView", myTreeDataProvider);
 
-  // Register the commands
-  let cmd1 = vscode.commands.registerCommand("runUnParallel", () => {
-    specials("run");
-  });
-  let cmd2 = vscode.commands.registerCommand("runParallel", () => {
-    specials("run-c");
-  });
-  let cmd3 = vscode.commands.registerCommand("runParallelGraphics", () => {
-    specials("run-cu");
-  });
-  let cmd4 = vscode.commands.registerCommand("check", () => {
-    specials("check");
-  });
-  let cmd5 = vscode.commands.registerCommand("ConvertToC", () => {
-    generate_commands("gen-c", "c");
-  });
-  let cmd6 = vscode.commands.registerCommand("ConvertToHvmc", () => {
-    generate_commands("gen-hvm", "hvmc");
-  });
-  let cmd7 = vscode.commands.registerCommand("ConvertToCuda", () => {
-    generate_commands("gen-cu", "cu");
-  });
-  let cmd8 = vscode.commands.registerCommand("desugar", () => {
-    generate_commands("gen-cu", "desugar");
-  });
-  let cmd9 = vscode.commands.registerCommand("installBend", () => {
-    installBend();
-  });
-  context.subscriptions.push(cmd1);
-  context.subscriptions.push(cmd2);
-  context.subscriptions.push(cmd3);
-  context.subscriptions.push(cmd4);
-  context.subscriptions.push(cmd5);
-  context.subscriptions.push(cmd6);
-  context.subscriptions.push(cmd7);
-  context.subscriptions.push(cmd8);
-  context.subscriptions.push(cmd9);
-
-  let runBendFile = vscode.commands.registerCommand("runBendFile", function () {
-    specials("run");
-  });
-
-  // Add the command to the context
-  context.subscriptions.push(runBendFile);
+  context.subscriptions.push(
+    vscode.commands.registerCommand("runParallelGraphics", () => {
+      specials("run-cu");
+    })
+  );
+  context.subscriptions.push(
+    vscode.commands.registerCommand("check", () => {
+      specials("check");
+    })
+  );
+  context.subscriptions.push(
+    vscode.commands.registerCommand("ConvertToC", () => {
+      generate_commands("gen-c", "c");
+    })
+  );
+  context.subscriptions.push(
+    vscode.commands.registerCommand("ConvertToHvmc", () => {
+      generate_commands("gen-hvm", "hvmc");
+    })
+  );
+  context.subscriptions.push(
+    vscode.commands.registerCommand("ConvertToCuda", () => {
+      generate_commands("gen-cu", "cu");
+    })
+  );
+  context.subscriptions.push(
+    vscode.commands.registerCommand("desugar", () => {
+      generate_commands("gen-cu", "desugar");
+    })
+  );
+  context.subscriptions.push(
+    vscode.commands.registerCommand("installBend", () => {
+      installBend();
+    })
+  );
+  context.subscriptions.push(
+    vscode.commands.registerCommand("runUnParallel", () => {
+      specials("run");
+    })
+  );
+  context.subscriptions.push(
+    vscode.commands.registerCommand("runBendFile", function () {
+      specials("run");
+    })
+  );
+  context.subscriptions.push(
+    vscode.commands.registerCommand("runParallel", () => {
+      specials("run-c");
+    })
+  );
 }
 
 class MyTreeItem extends vscode.TreeItem {
@@ -160,9 +169,9 @@ class MyTreeDataProvider {
           command: "desugar",
           title: "Generate De-sugared functional bend file",
         }),
-        new MyTreeItem("Install Bend programming language", {
+        new MyTreeItem("Install/Update Bend programming language", {
           command: "installBend",
-          title: "Install Bend programming language",
+          title: "Install/Update Bend programming language",
         }),
       ];
     }

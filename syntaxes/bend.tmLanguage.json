@@ -4,7 +4,15 @@
   "fileTypes": ["bend"],
   "patterns": [
     {
-      "include": "#comments"
+      "name": "comment.line",
+      "begin": "#",
+      "end": "\n",
+      "patterns": [
+        {
+          "name": "keyword.control.BEND",
+          "match": "TODO\\:"
+        }
+      ]
     },
     {
       "include": "#operators"
@@ -56,20 +64,6 @@
         }
       ]
     },
-    "comments": {
-      "patterns": [
-        {
-          "name": "comment.line.double-dash.bend",
-          "begin": "#",
-          "end": "\n"
-        },
-        {
-          "name": "comment.line.double-dash.bend",
-          "begin": "//",
-          "end": "\n"
-        }
-      ]
-    },
     "string_escapes": {
       "patterns": [
         {
@@ -90,7 +84,7 @@
       "patterns": [
         {
           "name": "keyword.bend",
-          "match": "\\b(bend|None|Nil|Result|type)\\b"
+          "match": "\\b(bend|None|Nil|Result|type|lambda)\\b"
         }
       ]
     },
@@ -146,11 +140,31 @@
         },
         {
           "name": "support.variable.bend",
+          "match": "\\w+(?=\\s*<\\-)"
+        },
+        {
+          "name": "support.variable.bend",
           "match": "(?<=\\bbend\\s)\\w+"
+        },
+        {
+          "name": "support.variable.bend",
+          "match": "(?<=<\\-\\s)\\w+"
         },
         {
           "name": "support.function.bend",
           "match": "(?<=\\bdef\\s)\\w+"
+        },
+        {
+          "name": "support.function.bend",
+          "match": "(?<=\\bmatch\\s)\\w+"
+        },
+        {
+          "name": "support.variable.bend",
+          "match": "(?<=\\=\\s)\\w+"
+        },
+        {
+          "name": "support.variable.bend",
+          "match": "(?<=\\bcase\\s)\\w+"
         },
         {
           "name": "support.other.bend",

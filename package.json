@@ -41,7 +41,7 @@
       "myCustomContainer": [
         {
           "id": "myCustomView",
-          "name": "View Run/Debug/Generate options"
+          "name": "View Options"
         }
       ]
     },
