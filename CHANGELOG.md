@@ -71,4 +71,4 @@ All notable changes to the "bend" extension will be documented in this file.
 
 - Added huge syntax highlighting support
 - Improved performance
-- Improved vsix size (from 1.2MB to 31.75KB)
+- Improved vsix size (from 1.2MB to 31.76KB)
