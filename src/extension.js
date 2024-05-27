@@ -53,7 +53,9 @@ function activate(context) {
       x.sendText(`autopep8 --indent-size 2 --in-place "${document.fileName}"`);
       x.sendText(`python3 -m pip install autopep8`);
       x.sendText(`py -m pip install autopep8`);
-      x.sendText(`autopep8 --indent-size 2 --in-place "${document.fileName}"`);
+      x.sendText(
+        `autopep8 -i --ignore E225,E226 --indent-size 2 "${document.fileName}"`
+      );
       return [vscode.window.showInformationMessage("Code formatted")];
     },
   });
