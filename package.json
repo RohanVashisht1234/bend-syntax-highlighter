@@ -3,7 +3,7 @@
   "displayName": "Bend",
   "description": "Bend programming language's complete language support extension",
   "icon": "./icons/icon.webp",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "license": "MIT",
   "author": "Rohan Vashisht",
   "repository": "https://github.com/RohanVashisht1234/bend-syntax-highlighter",
