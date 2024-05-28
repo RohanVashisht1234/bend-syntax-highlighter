@@ -1,6 +1,26 @@
 const vscode = require("vscode");
 const path = require("path");
 
+function format_current_document() {
+  let editor = vscode.window.activeTextEditor;
+  if (editor) {
+    if (editor.document.languageId == "bend") {
+      var x = vscode.window.createTerminal("Formatter");
+      x.sendText(`autopep8 --indent-size 2 --in-place "${document.fileName}"`);
+      x.sendText(`python3 -m pip install autopep8`);
+      x.sendText(`py -m pip install autopep8`);
+      x.sendText(
+        `autopep8 -i --ignore E225,E226 --indent-size 2 "${document.fileName}"`
+      );
+      return [vscode.window.showInformationMessage("Code formatted")];
+    } else {
+      vscode.window.showErrorMessage("Editor doesn't contain a bend file");
+    }
+  } else {
+    vscode.window.showErrorMessage("No file is open in the editor");
+  }
+}
+
 function specials(command) {
   let editor = vscode.window.activeTextEditor;
   if (editor) {
@@ -50,14 +70,7 @@ function generate_commands(command, fext) {
 function activate(context) {
   vscode.languages.registerDocumentFormattingEditProvider("bend", {
     provideDocumentFormattingEdits(document) {
-      var x = vscode.window.createTerminal("Formatter");
-      x.sendText(`autopep8 --indent-size 2 --in-place "${document.fileName}"`);
-      x.sendText(`python3 -m pip install autopep8`);
-      x.sendText(`py -m pip install autopep8`);
-      x.sendText(
-        `autopep8 -i --ignore E225,E226 --indent-size 2 "${document.fileName}"`
-      );
-      return [vscode.window.showInformationMessage("Code formatted")];
+      format_current_document();
     },
   });
 
@@ -98,6 +111,11 @@ function activate(context) {
   context.subscriptions.push(
     vscode.commands.registerCommand("installBend", () => {
       installBend();
+    })
+  );
+  context.subscriptions.push(
+    vscode.commands.registerCommand("formatBend", () => {
+      format_current_document();
     })
   );
   context.subscriptions.push(
@@ -152,6 +170,10 @@ class MyTreeDataProvider {
         new MyTreeItem("Run current file parallelly on Graphics Card", {
           command: "runParallelGraphics",
           title: "Run current file parallelly on Graphics Card",
+        }),
+        new MyTreeItem("Format current file", {
+          command: "formatBend",
+          title: "Format current file",
         }),
         new MyTreeItem("Convert bend to C", {
           command: "ConvertToC",
