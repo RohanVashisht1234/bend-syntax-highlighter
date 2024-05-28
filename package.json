@@ -1,7 +1,7 @@
 {
   "name": "bend",
   "displayName": "Bend",
-  "description": "A syntax highlighter for bend programming language",
+  "description": "Bend programming language's complete language support extension",
   "icon": "./icons/icon.webp",
   "version": "0.1.7",
   "license": "MIT",
