@@ -6,11 +6,13 @@ function format_current_document() {
   if (editor) {
     if (editor.document.languageId == "bend") {
       var x = vscode.window.createTerminal("Formatter");
-      x.sendText(`autopep8 --indent-size 2 --in-place "${document.fileName}"`);
+      x.sendText(
+        `autopep8 --indent-size 2 --in-place "${editor.document.fileName}"`
+      );
       x.sendText(`python3 -m pip install autopep8`);
       x.sendText(`py -m pip install autopep8`);
       x.sendText(
-        `autopep8 -i --ignore E225,E226 --indent-size 2 "${document.fileName}"`
+        `autopep8 -i --ignore E225,E226 --indent-size 2 "${editor.document.fileName}"`
       );
       return [vscode.window.showInformationMessage("Code formatted")];
     } else {
