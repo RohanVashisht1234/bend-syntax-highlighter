@@ -1,6 +1,6 @@
 <div align="center">
 
-<img width=500 src="https://raw.githubusercontent.com/RohanVashisht1234/bend-syntax-highlighter/main/screenshots/screenshot.webp">
+<img width=500 src="https://raw.githubusercontent.com/RohanVashisht1234/cdn/main/vscode_bend/screenshot.webp">
 
 <h1> A Syntax highlighter for the Bend programming language in VScode </h1>
 
@@ -13,19 +13,19 @@
 
 ## Features:
 
-- Syntax highlighting
+### Syntax highlighting
 
 <img src="https://raw.githubusercontent.com/RohanVashisht1234/cdn/main/vscode_bend/syntax-highlighting.png" width=500/>
 
-- Code formatter
+### Code formatter
 
 <video width=500 src="https://raw.githubusercontent.com/RohanVashisht1234/cdn/main/vscode_bend/formatting.mp4" controls autoplay muted></video>
 
-- Snippet support
+### Snippet support
 
 <video width=500 src="https://raw.githubusercontent.com/RohanVashisht1234/cdn/main/vscode_bend/snippet-support.mp4" controls autoplay muted></video>
 
-- Side bar view:
+### Side bar view:
 
 <img src="https://raw.githubusercontent.com/RohanVashisht1234/cdn/main/vscode_bend/sidebar.png" width=500/>
 
@@ -48,3 +48,13 @@ Feel free to open a PR, post any issues, create discussions
 ## Community Guidelines:
 
 - Use peaceful tone of speech, there is always a way to express things in a peaceful manner.
+
+## About Author:
+
+<img align="left" border=1 width="60" src="https://avatars.githubusercontent.com/u/81112205?v=4"/>
+
+#### &nbsp; &nbsp; &nbsp; Name: Rohan Vashisht
+
+#### &nbsp; &nbsp; &nbsp; Age: 18
+
+Contact me: learncodingly@gmail.com
