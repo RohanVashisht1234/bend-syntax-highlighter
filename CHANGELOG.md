@@ -84,5 +84,5 @@ All notable changes to the "bend" extension will be documented in this file.
 
 ## v0.1.91 [Minor release]
 
-- Reduced bundle size from (31.76KB to 21.86KB)
-- Added syntax for true, false.
+- Reduced bundle size from (21.86KB to 21.76KB).
+- Added syntax for booleans.
