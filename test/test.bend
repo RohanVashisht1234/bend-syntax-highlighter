@@ -1,5 +1,5 @@
-# A syntax highlighter for the Bend programming language in intelej idea!
-def String/concata(a, b):
+# A syntax highlighter for the Bend programming language in JetBrains IDE!
+def String/concat(a, b):
   # Concatenate Variables
   match a:
   case String/Cons:

@@ -187,10 +187,6 @@
           "match": "(?<=\\bidentity\\s)\\w+"
         },
         {
-          "name": "support.type.property-name.bend",
-          "match": "(?<=\\breturn\\s)\\w+"
-        },
-        {
           "name": "support.class.bend",
           "match": "(?<=\\blambda\\s)\\w+"
         }
