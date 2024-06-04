@@ -81,3 +81,8 @@ All notable changes to the "bend" extension will be documented in this file.
 
 - Reduced bundle size from (31.76KB to 21.86KB)
 - Added bugs category to package.json.
+
+## v0.1.91 [Minor release]
+
+- Reduced bundle size from (31.76KB to 21.86KB)
+- Added syntax for true, false.

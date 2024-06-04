@@ -100,7 +100,7 @@
       "patterns": [
         {
           "name": "keyword.operator.new.bend",
-          "match": "\\b(True|False)\\b"
+          "match": "\\b(True|False|true|false)\\b"
         }
       ]
     },
