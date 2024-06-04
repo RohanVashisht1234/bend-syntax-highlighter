@@ -6,6 +6,10 @@
   "version": "0.1.8",
   "license": "MIT",
   "author": "Rohan Vashisht",
+  "bugs": {
+    "email": "learncodingly@gmail.com",
+    "url": "https://github.com/RohanVashisht1234/bend-syntax-highlighter/issues"
+  },
   "repository": "https://github.com/RohanVashisht1234/bend-syntax-highlighter",
   "publisher": "RohanVashisht",
   "engines": {
@@ -20,6 +24,7 @@
   "main": "./src/extension.js",
   "activationEvents": [],
   "contributes": {
+    "markdown.markdownItPlugins": true,
     "languages": [
       {
         "id": "bend",
