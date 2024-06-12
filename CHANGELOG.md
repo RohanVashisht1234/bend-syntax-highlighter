@@ -86,3 +86,13 @@ All notable changes to the "bend" extension will be documented in this file.
 
 - Reduced bundle size from (21.86KB to 21.76KB).
 - Added syntax for booleans.
+
+## v0.1.91 [Minor release]
+
+- Reduced bundle size from (21.86KB to 21.76KB).
+- Added syntax for booleans.
+
+# v0.1.92 [Minor release]
+
+- Added -s option by [merging #3 pull request.](https://github.com/RohanVashisht1234/bend-syntax-highlighter/pull/3)
+- fixed [test/test.bend](./test/test.bend)
