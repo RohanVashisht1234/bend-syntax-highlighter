@@ -27,17 +27,10 @@ function specials(command) {
   let editor = vscode.window.activeTextEditor;
   if (editor) {
     if (editor.document.languageId == "bend") {
-      if(command == "check"){
-        editor.document.save();
-        let terminal = vscode.window.createTerminal("Bend Interactive");
-        terminal.sendText(`bend ${command} "${editor.document.fileName}"`);
-        terminal.show();
-      } else { 
-        editor.document.save();
-        let terminal = vscode.window.createTerminal("Bend Interactive");
-        terminal.sendText(`bend ${command} "${editor.document.fileName}" -s`);
-        terminal.show();
-      }
+      editor.document.save();
+      let terminal = vscode.window.createTerminal("Bend Interactive");
+      terminal.sendText(`bend ${command} "${editor.document.fileName}"`);
+      terminal.show();
     } else {
       vscode.window.showErrorMessage("Editor doesn't contain a bend file");
     }
