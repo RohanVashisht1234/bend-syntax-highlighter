@@ -2,10 +2,10 @@
 def String/concat(a, b):
   # Concatenate Variables
   match a:
-  case String/Cons:
-  return String/Cons(a.head, String/concat(a. tail, b))
-  case String/Nil:
-  return b
+    case String/Cons:
+      return String/Cons(a.head, String/concat(a.tail, b))
+    case String/Nil:
+      return b
 
 
 def main(s):
