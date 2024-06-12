@@ -2,7 +2,8 @@
   "name": "bend",
   "displayName": "Bend",
   "description": "Bend programming language's complete language support extension",
-  "version": "0.1.92",
+  "icon": "./icons/icon.avif",
+  "version": "0.1.91",
   "license": "MIT",
   "author": "Rohan Vashisht",
   "bugs": {
