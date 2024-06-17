@@ -1,32 +1,63 @@
 {
-  "Main Function": {
-    "prefix": ["main"],
-    "body": ["def main():", "  return ${1:\"Hello, world!\"}$0"],
-    "description": "The main function"
-  },
-  "When Statement": {
-    "prefix": ["when"],
-    "body": ["when ${1:condition}:", "  $0"],
-    "description": "The when statement"
-  },
-  "Else statement": {
-    "prefix": ["else"],
-    "body": ["else:", "  $0"],
-    "description": "The else statement"
-  },
-  "Switch statement": {
-    "prefix": ["switch"],
-    "body": ["switch ${1:condition}:", "  case ${2:condition}:", "    $0"],
-    "description": "The switch statement"
-  },
-  "Case statement": {
-    "prefix": ["case"],
-    "body": ["case ${1:condition}:", "  $0"],
-    "description": "The case statement"
-  },
-  "Function definition statement": {
-    "prefix": ["def"],
-    "body": ["def ${1:function_name}(${2:parameters}):", "  $0"],
-    "description": "The function definition"
-  }
+    "Main Function": {
+        "prefix": [
+            "main"
+        ],
+        "body": [
+            "def main():",
+            "  return ${1:\"Hello, world!\"}$0"
+        ],
+        "description": "The main function"
+    },
+    "When Statement": {
+        "prefix": [
+            "when"
+        ],
+        "body": [
+            "when ${1:condition}:",
+            "  $0"
+        ],
+        "description": "The when statement"
+    },
+    "Else statement": {
+        "prefix": [
+            "else"
+        ],
+        "body": [
+            "else:",
+            "  $0"
+        ],
+        "description": "The else statement"
+    },
+    "Switch statement": {
+        "prefix": [
+            "switch"
+        ],
+        "body": [
+            "switch ${1:condition}:",
+            "  case ${2:condition}:",
+            "    $0"
+        ],
+        "description": "The switch statement"
+    },
+    "Case statement": {
+        "prefix": [
+            "case"
+        ],
+        "body": [
+            "case ${1:condition}:",
+            "  $0"
+        ],
+        "description": "The case statement"
+    },
+    "Function definition statement": {
+        "prefix": [
+            "def"
+        ],
+        "body": [
+            "def ${1:function_name}(${2:parameters}):",
+            "  $0"
+        ],
+        "description": "The function definition"
+    }
 }

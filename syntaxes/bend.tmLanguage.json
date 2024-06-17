@@ -1,7 +1,9 @@
 {
   "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
   "name": "bend",
-  "fileTypes": ["bend"],
+  "fileTypes": [
+    "bend"
+  ],
   "patterns": [
     {
       "name": "comment.line",

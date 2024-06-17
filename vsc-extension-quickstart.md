@@ -1,6 +1,9 @@
 <div align="center">
+
 <img width=500 src="https://raw.githubusercontent.com/RohanVashisht1234/cdn/main/vscode_bend/screenshot.webp">
+
 <h1> A Syntax highlighter for the Bend programming language in VScode </h1>
+
 <p>
 
 ![Code Size](https://img.shields.io/github/languages/code-size/rohanvashisht1234/bend-syntax-highlighter)
@@ -54,4 +57,4 @@ Feel free to open a PR, post any issues, create discussions
 
 #### &nbsp; &nbsp; &nbsp; Age: 18
 
-Contact me: [learncodingly@gmail.com](mailto:learncodingly@gmail.com)
+Contact me: learncodingly@gmail.com
