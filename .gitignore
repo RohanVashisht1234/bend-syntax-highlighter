@@ -2,3 +2,5 @@ node_modules
 *.vsix
 *.hvm
 .DS_Store
+dist
+*.lockb
