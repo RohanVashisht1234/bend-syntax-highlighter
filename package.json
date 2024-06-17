@@ -4,7 +4,7 @@
   "description": "Bend programming language's complete language support extension",
   "icon": "./icons/icon.avif",
   "license": "MIT",
-  "version": "0.1.92",
+  "version": "0.2.0",
   "author": "Rohan Vashisht",
   "bugs": {
     "email": "learncodingly@gmail.com",
