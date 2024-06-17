@@ -1,91 +1,41 @@
-import vscode, { ProviderResult } from "vscode";
+import vscode from "vscode";
 import generateFiles from "./generateFiles";
 import formatCurrentDocument from "./codeFormatter";
 import fileRunners from "./fileRunners";
 import installBend from "./installBend";
 
-function activate(context: { subscriptions: vscode.Disposable[]; }): void {
-  vscode.languages.registerDocumentFormattingEditProvider("bend", {
-    provideDocumentFormattingEdits(): ProviderResult<any> {
-      formatCurrentDocument();
-    },
-  });
-
+function main(context: { subscriptions: vscode.Disposable[]; }): void {
   const myTreeDataProvider: MyTreeDataProvider = new MyTreeDataProvider();
 
-  vscode.window.registerTreeDataProvider("myCustomView", myTreeDataProvider);
-
   context.subscriptions.push(
-    vscode.commands.registerCommand("runParallelGraphics", () => {
-      fileRunners("run-cu");
-    })
-  );
-  context.subscriptions.push(
-    vscode.commands.registerCommand("check", () => {
-      fileRunners("check");
-    })
-  );
-  context.subscriptions.push(
-    vscode.commands.registerCommand("ConvertToC", () => {
-      generateFiles("gen-c", "c");
-    })
-  );
-  context.subscriptions.push(
-    vscode.commands.registerCommand("ConvertToHvmc", () => {
-      generateFiles("gen-hvm", "hvmc");
-    })
-  );
-  context.subscriptions.push(
-    vscode.commands.registerCommand("ConvertToCuda", () => {
-      generateFiles("gen-cu", "cu");
-    })
-  );
-  context.subscriptions.push(
-    vscode.commands.registerCommand("desugar", () => {
-      generateFiles("gen-cu", "desugar");
-    })
-  );
-  context.subscriptions.push(
-    vscode.commands.registerCommand("installBend", () => {
-      installBend();
-    })
-  );
-  context.subscriptions.push(
-    vscode.commands.registerCommand("formatBend", () => {
-      formatCurrentDocument();
-    })
-  );
-  context.subscriptions.push(
-    vscode.commands.registerCommand("runUnParallel", () => {
-      fileRunners("run");
-    })
-  );
-  context.subscriptions.push(
-    vscode.commands.registerCommand("runBendFile", function () {
-      fileRunners("run");
-    })
-  );
-  context.subscriptions.push(
-    vscode.commands.registerCommand("runParallel", () => {
-      fileRunners("run-c");
-    })
+    vscode.languages.registerDocumentFormattingEditProvider("bend", {
+      provideDocumentFormattingEdits(): vscode.ProviderResult<any> {
+        formatCurrentDocument();
+      },
+    }),
+    vscode.window.registerTreeDataProvider("myCustomView", myTreeDataProvider),
+    vscode.commands.registerCommand("runBendFile", () => fileRunners("run")),
+    vscode.commands.registerCommand("runParallel", () => fileRunners("run-c")),
+    vscode.commands.registerCommand("runUnParallel", () => fileRunners("run")),
+    vscode.commands.registerCommand("formatBend", () => formatCurrentDocument()),
+    vscode.commands.registerCommand("installBend", () => installBend()),
+    vscode.commands.registerCommand("desugar", () => generateFiles("gen-cu", "desugar")),
+    vscode.commands.registerCommand("ConvertToCuda", () => generateFiles("gen-cu", "cu")),
+    vscode.commands.registerCommand("ConvertToHvmc", () => generateFiles("gen-hvm", "hvmc")),
+    vscode.commands.registerCommand("ConvertToC", () => generateFiles("gen-c", "c")),
+    vscode.commands.registerCommand("check", () => fileRunners("check")),
+    vscode.commands.registerCommand("runParallelGraphics", () => fileRunners("run-cu"))
   );
 }
 
 class MyTreeItem extends vscode.TreeItem {
-  constructor(label: string, command: { command: string; title: string; }) {
-    super(label, vscode.TreeItemCollapsibleState.None);
+  constructor(command: { command: string; title: string; }) {
+    super(command.title, vscode.TreeItemCollapsibleState.None);
     this.command = command;
   }
 }
 
 class MyTreeDataProvider {
-  _onDidChangeTreeData: any;
-  onDidChangeTreeData: any;
-  constructor() {
-    this._onDidChangeTreeData = new vscode.EventEmitter();
-    this.onDidChangeTreeData = this._onDidChangeTreeData.event;
-  }
 
   getTreeItem(element: any) {
     return element;
@@ -94,43 +44,43 @@ class MyTreeDataProvider {
   getChildren(element: any) {
     if (!element) {
       return [
-        new MyTreeItem("Check file to avoid errors", {
+        new MyTreeItem({
           command: "check",
           title: "Check file avoid errors",
         }),
-        new MyTreeItem("Run current file unparallelly", {
+        new MyTreeItem({
           command: "runUnParallel",
           title: "Run current file unparallelly",
         }),
-        new MyTreeItem("Run current file parallelly", {
+        new MyTreeItem({
           command: "runParallel",
           title: "Run current file parallelly",
         }),
-        new MyTreeItem("Run current file parallelly on Graphics Card", {
+        new MyTreeItem({
           command: "runParallelGraphics",
           title: "Run current file parallelly on Graphics Card",
         }),
-        new MyTreeItem("Format current file", {
+        new MyTreeItem({
           command: "formatBend",
           title: "Format current file",
         }),
-        new MyTreeItem("Convert bend to C", {
+        new MyTreeItem({
           command: "ConvertToC",
           title: "Convert bend to C",
         }),
-        new MyTreeItem("Convert bend to Hvmc", {
+        new MyTreeItem({
           command: "ConvertToHvmc",
           title: "Convert bend to Hvmc",
         }),
-        new MyTreeItem("Convert bend to Cuda", {
+        new MyTreeItem({
           command: "ConvertToCuda",
           title: "Convert bend to Cuda",
         }),
-        new MyTreeItem("Generate De-sugared functional bend file", {
+        new MyTreeItem({
           command: "desugar",
           title: "Generate De-sugared functional bend file",
         }),
-        new MyTreeItem("Install/Update Bend programming language", {
+        new MyTreeItem({
           command: "installBend",
           title: "Install/Update Bend programming language",
         }),
@@ -140,4 +90,4 @@ class MyTreeDataProvider {
   }
 }
 
-exports.activate = activate;
+exports.activate = main;

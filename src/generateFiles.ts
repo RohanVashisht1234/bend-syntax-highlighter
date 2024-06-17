@@ -12,6 +12,7 @@ export default function generateFiles(command: string, fext: string): void {
       path.basename(editor.document.fileName, ".bend")
       }.bend.${fext}"`
     );
+    terminal.sendText("exit 0");
   } else {
     vscode.window.showErrorMessage("No Bend file is open in the editor");
   }

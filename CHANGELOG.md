@@ -96,3 +96,12 @@ All notable changes to the "bend" extension will be documented in this file.
 
 - Added -s option by [merging #3 pull request.](https://github.com/RohanVashisht1234/bend-syntax-highlighter/pull/3)
 - fixed [test/test.bend](./test/test.bend)
+
+# v0.2.0 [Major release]
+
+- Convert all existing js code to typescript
+- Typescript helped in finding bugs easily
+- Source code makes much more sense now
+- Typescript helped maintain code's readability by distributing code to multiple files.
+- Typescript helped in making the source code more concise
+- Hence improving overall stability and performance.
