@@ -43,7 +43,7 @@
       }
     ],
     "views": {
-      "myCustomContainer": [
+      "BendContainer": [
         {
           "id": "bendView",
           "name": "View Options"
@@ -53,7 +53,7 @@
     "viewsContainers": {
       "activitybar": [
         {
-          "id": "myCustomContainer",
+          "id": "BendContainer",
           "title": "Bend",
           "icon": "./icons/sideBarIcon.webp"
         }

@@ -12,7 +12,7 @@ export default function formatCurrentDocument(): void {
     x.sendText(
       `autopep8 -i --ignore E225,E226 --indent-size 2 "${editor.document.fileName}"`
     );
-    x.sendText("exit 0")
+    x.sendText("exit 0");
     vscode.window.showInformationMessage("Code formatted");
   } else {
     vscode.window.showErrorMessage("No Bend file is open in the editor");

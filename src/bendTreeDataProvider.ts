@@ -1,12 +1,11 @@
 import vscode from "vscode";
 
 class BendTreeItem extends vscode.TreeItem {
-  constructor(command: { command: string; title: string; }) {
+  constructor(command: { command: string; title: string }) {
     super(command.title, vscode.TreeItemCollapsibleState.None);
     this.command = command;
   }
 }
-
 
 export class BendTreeDataProvider {
   getTreeItem(element: BendTreeItem): BendTreeItem {
@@ -61,4 +60,3 @@ export class BendTreeDataProvider {
     return [];
   }
 }
-
