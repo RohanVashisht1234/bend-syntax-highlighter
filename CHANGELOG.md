@@ -92,16 +92,21 @@ All notable changes to the "bend" extension will be documented in this file.
 - Reduced bundle size from (21.86KB to 21.76KB).
 - Added syntax for booleans.
 
-# v0.1.92 [Minor release]
+## v0.1.92 [Minor release]
 
 - Added -s option by [merging #3 pull request.](https://github.com/RohanVashisht1234/bend-syntax-highlighter/pull/3)
 - fixed [test/test.bend](./test/test.bend)
 
-# v0.2.0 [Major release]
+## v0.2.0 [Major release]
 
-- Convert all existing js code to typescript
+- Converted all existing js code to typescript
 - Typescript helped in finding bugs easily
 - Source code makes much more sense now
 - Typescript helped maintain code's readability by distributing code to multiple files.
 - Typescript helped in making the source code more concise
 - Hence improving overall stability and performance.
+
+## v0.2.11 [Minor release]
+
+- Fixed minor bugs
+- Made changelog (this file) better.
