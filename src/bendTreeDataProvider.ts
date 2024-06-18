@@ -7,7 +7,7 @@ class BendTreeItem extends vscode.TreeItem {
   }
 }
 
-export class BendTreeDataProvider {
+export default class BendTreeDataProvider {
   getTreeItem(element: BendTreeItem): BendTreeItem {
     return element;
   }

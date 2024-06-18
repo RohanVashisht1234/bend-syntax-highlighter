@@ -3,7 +3,7 @@ import generateFiles from "./generateFiles";
 import formatCurrentDocument from "./codeFormatter";
 import fileRunners from "./fileRunners";
 import installBend from "./installBend";
-import { BendTreeDataProvider } from "./bendTreeDataProvider";
+import BendTreeDataProvider from "./bendTreeDataProvider";
 
 function main(context: { subscriptions: vscode.Disposable[] }): void {
   const bendTreeDataProvider: BendTreeDataProvider = new BendTreeDataProvider();
