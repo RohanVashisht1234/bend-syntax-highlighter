@@ -45,7 +45,7 @@
     "views": {
       "myCustomContainer": [
         {
-          "id": "myCustomView",
+          "id": "bendView",
           "name": "View Options"
         }
       ]
