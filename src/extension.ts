@@ -46,19 +46,19 @@ class MyTreeDataProvider {
       return [
         new MyTreeItem({
           command: "check",
-          title: "Check file avoid errors",
+          title: "Check file to avoid errors",
         }),
         new MyTreeItem({
           command: "runUnParallel",
-          title: "Run current file unparallelly",
+          title: "Run current file unparalleled",
         }),
         new MyTreeItem({
           command: "runParallel",
-          title: "Run current file parallelly",
+          title: "Run current file paralleled",
         }),
         new MyTreeItem({
           command: "runParallelGraphics",
-          title: "Run current file parallelly on Graphics Card",
+          title: "Run current file paralleled on Graphics Card",
         }),
         new MyTreeItem({
           command: "formatBend",

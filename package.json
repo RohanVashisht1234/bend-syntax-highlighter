@@ -35,7 +35,7 @@
         "extensions": [
           ".bend"
         ],
-        "configuration": "./language-configuration.json",
+        "configuration": "./syntaxes/language-configuration.json",
         "icon": {
           "light": "./icons/langIcon/light.webp",
           "dark": "./icons/langIcon/dark.webp"
