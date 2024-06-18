@@ -5,7 +5,7 @@ import fileRunners from "./fileRunners";
 import installBend from "./installBend";
 import { BendTreeDataProvider } from "./bendTreeDataProvider";
 
-export function main(context: { subscriptions: vscode.Disposable[] }): void {
+function main(context: { subscriptions: vscode.Disposable[] }): void {
   const bendTreeDataProvider: BendTreeDataProvider = new BendTreeDataProvider();
 
   context.subscriptions.push(
