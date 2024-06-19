@@ -4,9 +4,16 @@ import formatCurrentDocument from "./codeFormatter";
 import fileRunners from "./fileRunners";
 import installBend from "./installBend";
 import BendTreeDataProvider from "./bendTreeDataProvider";
+import { LanguageClient, LanguageClientOptions, ServerOptions } from 'vscode-languageclient/node';
+import runLSP from "./lsp";
+
+
+let client: LanguageClient;
 
 function main(context: { subscriptions: vscode.Disposable[] }): void {
   const bendTreeDataProvider: BendTreeDataProvider = new BendTreeDataProvider();
+
+  runLSP();
 
   context.subscriptions.push(
     vscode.languages.registerDocumentFormattingEditProvider("bend", {
