@@ -1,4 +1,3 @@
-import vscode from "vscode";
 import { LanguageClient, LanguageClientOptions, ServerOptions } from "vscode-languageclient/node";
 import os from "os"
 import path from "path";
@@ -37,10 +36,12 @@ export default function runLSP() {
             executablePath = path.join(__dirname, '..', 'lsp-bin', 'linux', 'arm64');
         }
     }
-    fs.chmod(executablePath, 0o775, (err) => {
-        if (err) throw err;
-        console.log('The permissions for file "my_file.txt" have been changed!');
-      });
+    if (platform !== "win32") {
+        fs.chmod(executablePath, 0o775, (err) => {
+            if (err) throw err;
+            console.log('The permissions for file "my_file.txt" have been changed!');
+        });
+    }
 
     let serverOptions: ServerOptions = {
         run: { command: executablePath },

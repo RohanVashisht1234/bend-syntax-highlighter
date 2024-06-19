@@ -4,7 +4,7 @@ import formatCurrentDocument from "./codeFormatter";
 import fileRunners from "./fileRunners";
 import installBend from "./installBend";
 import BendTreeDataProvider from "./bendTreeDataProvider";
-import { LanguageClient, LanguageClientOptions, ServerOptions } from 'vscode-languageclient/node';
+import { LanguageClient } from 'vscode-languageclient/node';
 import runLSP from "./lsp";
 
 
