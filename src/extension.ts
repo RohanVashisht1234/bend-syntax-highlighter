@@ -1,32 +1,20 @@
 import vscode from "vscode";
 import generateFiles from "./generateFiles";
-import formatCurrentDocument from "./codeFormatter";
+import * as formatter from "./codeFormatter";
 import fileRunners from "./fileRunners";
 import installBend from "./installBend";
 import BendTreeDataProvider from "./bendTreeDataProvider";
-import { LanguageClient } from 'vscode-languageclient/node';
-import runLSP from "./lsp";
+import * as lsp from "./lsp/main";
 
-
-let client: LanguageClient;
-
-function main(context: { subscriptions: vscode.Disposable[] }): void {
+function main(): vscode.Disposable {
   const bendTreeDataProvider: BendTreeDataProvider = new BendTreeDataProvider();
-
-  runLSP();
-
-  context.subscriptions.push(
-    vscode.languages.registerDocumentFormattingEditProvider("bend", {
-      provideDocumentFormattingEdits(): vscode.ProviderResult<any> {
-        formatCurrentDocument();
-      },
-    }),
+  return (
     vscode.window.registerTreeDataProvider("bendView", bendTreeDataProvider),
     vscode.commands.registerCommand("runBendFile", () => fileRunners("run")),
     vscode.commands.registerCommand("runParallel", () => fileRunners("run-c")),
     vscode.commands.registerCommand("runUnParallel", () => fileRunners("run")),
     vscode.commands.registerCommand("formatBend", () =>
-      formatCurrentDocument()
+      formatter.formatCurrentDocument()
     ),
     vscode.commands.registerCommand("installBend", () => installBend()),
     vscode.commands.registerCommand("desugar", () =>
@@ -48,4 +36,9 @@ function main(context: { subscriptions: vscode.Disposable[] }): void {
   );
 }
 
-exports.activate = main;
+
+function _start(context: vscode.ExtensionContext): void {
+  context.subscriptions.push(main(), formatter.main(), lsp.main());
+}
+
+exports.activate = _start;

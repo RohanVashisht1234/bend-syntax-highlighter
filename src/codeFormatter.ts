@@ -1,6 +1,6 @@
 import vscode from "vscode";
 
-export default function formatCurrentDocument(): void {
+export function formatCurrentDocument(): void {
   let editor: vscode.TextEditor | undefined = vscode.window.activeTextEditor;
   if (editor !== undefined && editor.document.languageId === "bend") {
     var x: vscode.Terminal = vscode.window.createTerminal("Formatter");
@@ -17,4 +17,12 @@ export default function formatCurrentDocument(): void {
   } else {
     vscode.window.showErrorMessage("No Bend file is open in the editor");
   }
+}
+
+export function main(): vscode.Disposable {
+  return vscode.languages.registerDocumentFormattingEditProvider("bend", {
+    provideDocumentFormattingEdits(): vscode.ProviderResult<any> {
+      formatCurrentDocument();
+    },
+  });
 }
