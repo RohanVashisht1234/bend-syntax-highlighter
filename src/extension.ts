@@ -36,7 +36,6 @@ function main(): vscode.Disposable {
   );
 }
 
-
 function _start(context: vscode.ExtensionContext): void {
   context.subscriptions.push(main(), lsp.main(), formatter.main());
 }
