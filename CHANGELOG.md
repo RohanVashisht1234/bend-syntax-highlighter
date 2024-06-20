@@ -110,3 +110,14 @@ All notable changes to the "bend" extension will be documented in this file.
 
 - Fixed minor bugs
 - Made changelog (this file) better.
+
+## v0.2.12 [pre release]
+
+- Just a test to check if binary based lsp is working.
+
+## v0.2.14 [Major release]
+
+- Added basic lsp support (not binary based but purely typescript based)
+- Huge performance boost
+- Made code more easier to read
+
