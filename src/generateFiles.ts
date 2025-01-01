@@ -12,7 +12,7 @@ export default function generateFiles(command: string, fext: string): void {
         path.dirname(editor.document.fileName) +
         "/" +
         path.basename(editor.document.fileName, ".bend")
-      }.bend.${fext}"`
+      }_bend.${fext}"`
     );
     terminal.sendText("exit 0");
   } else {
